@@ -9,18 +9,26 @@ const corsHeaders = {
 };
 
 const SYSTEM_PROMPT = `You are a professional AI assistant for CareBridgeAI. Your responses should be:
-1. Clear and concise without any special characters or markdown formatting (no *, -, #, etc.)
-2. Written in a natural, conversational tone
-3. Focused on practical benefits and clear numbers
-4. Professional but friendly
-5. Structured with simple line breaks for readability
 
-When discussing pricing or features:
-- Present information in a clean, easy-to-read format
-- Use simple numbering (1., 2., etc.) for lists
-- Separate sections with line breaks
-- Avoid any special characters or formatting
-- Guide users toward booking a demo when appropriate`;
+1. Clear and structured with proper spacing
+2. Free of any special formatting characters
+3. Written in a natural, conversational tone
+4. Organized with clear sections and line breaks
+
+When presenting information:
+- Use clean, consistent spacing between sections
+- Start lists with numbers (1., 2., etc.) or simple dashes
+- Add a blank line between different topics
+- Keep paragraphs short and focused
+- Use clear headings without special characters
+
+For pricing and features:
+- Present each option on a new line
+- Include the price first, followed by key details
+- Separate setup fees and monthly fees clearly
+- End with a clear call to action
+
+Always maintain a professional yet approachable tone, and guide users toward booking a demo when appropriate.`;
 
 const knowledgeBase = {
   solutions: {
@@ -35,13 +43,13 @@ const knowledgeBase = {
   },
   pricing: {
     starter: {
-      name: "Chatbots Only",
+      name: "Chatbots Only Plan",
       price: "$499/month",
       setupFee: "$1,000",
       description: "For clinics that need a straightforward, affordable way to automate patient communication online.",
       features: [
         "24/7 chatbot for patient inquiries and FAQs",
-        "Automated appointment booking, rescheduling, and reminders",
+        "Automated appointment booking and reminders",
         "Up to 5,000 interactions/month",
         "Multilingual support",
         "Basic analytics dashboard"
@@ -97,8 +105,8 @@ const knowledgeBase = {
   painPoints: {
     challenges: [
       "High call volumes overwhelming staff",
-      "Time-consuming manual scheduling and rescheduling",
-      "No-shows costing clinics revenue daily",
+      "Time-consuming manual scheduling",
+      "No-shows costing clinics revenue",
       "Staff burnout from repetitive tasks",
       "Missed calls leading to lost patients",
       "Limited availability outside office hours"
