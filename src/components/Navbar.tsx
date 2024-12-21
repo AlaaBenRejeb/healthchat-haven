@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import { Menu, PhoneCall } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -23,10 +23,8 @@ const Navbar = () => {
 
   const handleNavigation = (id: string) => {
     if (location.pathname === "/learn-more") {
-      // If on learn-more page, navigate to home first
       window.location.href = `/#${id}`;
     } else {
-      // If on home page, scroll to section
       const element = document.getElementById(id);
       if (element) {
         const offset = 80;
@@ -41,6 +39,10 @@ const Navbar = () => {
         });
       }
     }
+  };
+
+  const handleBookCall = () => {
+    window.open('https://calendly.com/alaabenrejeb-b/health', '_blank');
   };
 
   const navItems = [
@@ -76,10 +78,11 @@ const Navbar = () => {
               </Button>
             ))}
             <Button 
-              className="bg-emerald-600 hover:bg-emerald-700"
-              onClick={() => handleNavigation("cta")}
+              className="bg-emerald-600 hover:bg-emerald-700 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 font-semibold"
+              onClick={handleBookCall}
             >
-              Get Started
+              <PhoneCall className="w-4 h-4 mr-2" />
+              Transform Your Clinic Today
             </Button>
           </div>
 
@@ -104,10 +107,11 @@ const Navbar = () => {
                     </Button>
                   ))}
                   <Button 
-                    className="w-full bg-emerald-600 hover:bg-emerald-700"
-                    onClick={() => handleNavigation("cta")}
+                    className="w-full bg-emerald-600 hover:bg-emerald-700 shadow-lg font-semibold"
+                    onClick={handleBookCall}
                   >
-                    Get Started
+                    <PhoneCall className="w-4 h-4 mr-2" />
+                    Transform Your Clinic Today
                   </Button>
                 </div>
               </SheetContent>
