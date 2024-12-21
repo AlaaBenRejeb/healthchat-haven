@@ -3,7 +3,21 @@ import { MessageCircle, X, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 
-// Knowledge base for the AI assistant
+// System prompt and knowledge base
+const SYSTEM_PROMPT = `You are an AI assistant for CareBridgeAI, a healthcare technology company. Your role is to:
+1. Help medical clinics understand our AI solutions for patient communication
+2. Explain benefits like reduced workload and improved patient satisfaction
+3. Guide them towards booking a demo call
+4. Answer questions about pricing, implementation, and HIPAA compliance
+5. Be professional, helpful, and focus on value proposition
+
+Key points to remember:
+- Our solutions include AI chatbots and voice systems
+- We're fully HIPAA compliant
+- Implementation takes 2-3 business days
+- We integrate with most EHR systems
+- ROI is typically seen within the first month`;
+
 const knowledgeBase = {
   solutions: {
     chatbots: "Our AI chatbots handle patient inquiries 24/7, schedule appointments, and send reminders automatically. This typically saves clinics 15-20 hours per week in staff time.",
@@ -22,46 +36,40 @@ const knowledgeBase = {
   }
 };
 
-const generateResponse = (message: string): string => {
-  const lowerMessage = message.toLowerCase();
-  
-  // Pricing related queries
-  if (lowerMessage.includes("price") || lowerMessage.includes("cost") || lowerMessage.includes("pricing")) {
-    return `${knowledgeBase.pricing.starter} ${knowledgeBase.pricing.complete} Would you like to schedule a quick call to discuss pricing options that best fit your clinic's needs?`;
-  }
-  
-  // ROI and benefits queries
-  if (lowerMessage.includes("roi") || lowerMessage.includes("benefit") || lowerMessage.includes("worth")) {
-    return `${knowledgeBase.benefits.time} ${knowledgeBase.benefits.satisfaction} Would you like to see a live demo of how this works?`;
-  }
-  
-  // Integration and setup queries
-  if (lowerMessage.includes("integrate") || lowerMessage.includes("setup") || lowerMessage.includes("implement")) {
-    return `${knowledgeBase.solutions.integration} Would you like to schedule a call to discuss your specific integration needs?`;
-  }
-  
-  // Demo or booking related queries
-  if (lowerMessage.includes("demo") || lowerMessage.includes("call") || lowerMessage.includes("book") || lowerMessage.includes("schedule")) {
-    return "Great! You can schedule a demo call right away using our calendar. Click here to book your slot: https://calendly.com/alaabenrejeb-b/health";
-  }
-  
-  // HIPAA and security queries
-  if (lowerMessage.includes("hipaa") || lowerMessage.includes("security") || lowerMessage.includes("privacy")) {
-    return "Yes, our platform is fully HIPAA compliant with end-to-end encryption and secure data storage. We can discuss our security features in detail during a demo call. Would you like to schedule one?";
-  }
-  
-  // Chatbot specific queries
-  if (lowerMessage.includes("chatbot") || lowerMessage.includes("chat")) {
-    return `${knowledgeBase.solutions.chatbots} Would you like to see how it works in a quick demo?`;
-  }
-  
-  // Voice system queries
-  if (lowerMessage.includes("voice") || lowerMessage.includes("call") || lowerMessage.includes("phone")) {
-    return `${knowledgeBase.solutions.voice} Would you like to schedule a demo to see it in action?`;
-  }
+const generateResponse = async (message: string): Promise<string> => {
+  try {
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
+      },
+      body: JSON.stringify({
+        model: "gpt-4",
+        messages: [
+          {
+            role: "system",
+            content: SYSTEM_PROMPT
+          },
+          {
+            role: "user",
+            content: `Context: User message: "${message}"
+            Knowledge base: ${JSON.stringify(knowledgeBase)}
+            
+            Based on the knowledge base and system prompt, provide a helpful response to the user's message. Always try to guide them towards booking a demo call when appropriate.`
+          }
+        ],
+        temperature: 0.7,
+        max_tokens: 500
+      })
+    });
 
-  // Default response for other queries
-  return "I'd be happy to explain how our AI solutions can help your clinic reduce workload and improve patient satisfaction. The best way to understand the full benefits is through a quick demo call. Would you like to schedule one?";
+    const data = await response.json();
+    return data.choices[0].message.content;
+  } catch (error) {
+    console.error('Error generating response:', error);
+    return "I apologize, but I'm having trouble connecting to our systems. Would you like to schedule a call with our team to discuss your needs?";
+  }
 };
 
 const ChatbotWidget = () => {
@@ -84,12 +92,18 @@ const ChatbotWidget = () => {
     setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
     setIsLoading(true);
 
-    // Generate response using our knowledge base
-    setTimeout(() => {
-      const response = generateResponse(userMessage);
+    try {
+      const response = await generateResponse(userMessage);
       setMessages(prev => [...prev, { role: 'assistant', content: response }]);
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to generate response. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
