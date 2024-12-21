@@ -3,19 +3,19 @@ import { Star } from "lucide-react";
 const testimonials = [
   {
     quote: "Patients love the instant responses, and our staff finally has time to focus on meaningful work.",
-    author: "Dr. Ayesha Khan",
+    author: "Dr. Ayesha ****",
     role: "Family Clinic",
     rating: 5
   },
   {
     quote: "Adding the voice caller transformed how we manage patient calls. It feels like having an extra team member.",
-    author: "Sarah Peterson",
+    author: "Sarah ****",
     role: "Practice Manager",
     rating: 5
   },
   {
     quote: "The implementation was seamless, and now we can focus on what truly matters - patient care.",
-    author: "Dr. Michael Chen",
+    author: "Dr. Michael ****",
     role: "Medical Director",
     rating: 5
   }
