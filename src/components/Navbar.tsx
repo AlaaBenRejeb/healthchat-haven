@@ -60,25 +60,25 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <Link to="/" className="text-emerald-600 font-bold text-xl hover:text-emerald-700 transition-colors">
+        <div className="flex items-center justify-between h-16">
+          <Link to="/" className="text-emerald-600 text-2xl font-semibold hover:text-emerald-700 transition-colors">
             CareBridgeAI
           </Link>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <Button
                 key={item.id}
                 variant="ghost"
-                className="text-slate-600 hover:text-emerald-600"
+                className="text-slate-600 hover:text-emerald-600 font-medium px-1"
                 onClick={() => handleNavigation(item.id)}
               >
                 {item.label}
               </Button>
             ))}
             <Button 
-              className="bg-emerald-600 hover:bg-emerald-700 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 font-semibold whitespace-nowrap"
+              className="bg-emerald-600 hover:bg-emerald-700 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 font-semibold whitespace-nowrap ml-4"
               onClick={handleBookCall}
             >
               <PhoneCall className="w-4 h-4 mr-2" />
