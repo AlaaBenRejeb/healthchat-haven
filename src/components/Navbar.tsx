@@ -62,7 +62,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="text-emerald-600 font-bold text-xl hover:text-emerald-700 transition-colors">
-            HealthAI
+            CareBridgeAI
           </Link>
           
           {/* Desktop Navigation */}
