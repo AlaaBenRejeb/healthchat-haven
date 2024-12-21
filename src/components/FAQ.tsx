@@ -4,7 +4,7 @@ import { useState } from "react";
 const faqs = [
   {
     question: "How quickly can we implement your AI solution?",
-    answer: "Our system can be fully implemented within days, not weeks. We provide comprehensive onboarding support to ensure a smooth transition."
+    answer: "Our system can be fully implemented within days, not weeks. We provide comprehensive onboarding documentation to ensure a smooth transition."
   },
   {
     question: "Is your system HIPAA compliant?",
@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     question: "What kind of support do you provide?",
-    answer: "We offer 24/7 technical support, regular system updates, and dedicated account managers to help you maximize the benefits of our AI solutions."
+    answer: "We offer technical support and regular system updates to help you maximize the benefits of our AI solutions."
   },
   {
     question: "Can we integrate this with our existing systems?",
