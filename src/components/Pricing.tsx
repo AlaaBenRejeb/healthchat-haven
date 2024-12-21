@@ -54,7 +54,7 @@ const Pricing = () => {
             Simple, Transparent Pricing
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Choose the plan that best fits your clinic's needs. All plans include a 7-day free trial.
+            Choose the plan that best fits your clinic's needs.
           </p>
         </div>
 
@@ -124,11 +124,8 @@ const Pricing = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <p className="text-slate-600 mb-2">
-            <span className="font-semibold">Annual Discount:</span> Get 2 months free when billed annually
-          </p>
           <p className="text-slate-600">
-            <span className="font-semibold">Free Trial:</span> 7-day trial with 500 interactions (chatbot) or 100 voice caller minutes
+            <span className="font-semibold">Annual Discount:</span> Get 2 months free when billed annually
           </p>
         </div>
       </div>
