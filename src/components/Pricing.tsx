@@ -36,9 +36,9 @@ const Pricing = () => {
       setupFee: "$2,500",
       features: [
         "Everything in the Chatbots Only plan",
-        "AI-powered voice callers (3,000 minutes/month)",
-        "Advanced analytics with call transcripts",
-        "Integration with clinic management systems"
+        "AI-powered voice callers",
+        "Basic call analytics",
+        "Simple clinic system integration"
       ],
       cta: "Explore the Full AI System",
       popular: true
