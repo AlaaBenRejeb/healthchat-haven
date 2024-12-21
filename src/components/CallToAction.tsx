@@ -16,7 +16,7 @@ const CallToAction = () => {
             Get Started Today
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
-          <Button size="lg" variant="outline" className="text-white border-white hover:bg-emerald-500 text-lg">
+          <Button size="lg" className="bg-white text-emerald-600 hover:bg-emerald-50 text-lg">
             Try it free—no commitment
           </Button>
         </div>
