@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
-    <section className="py-20 px-4 md:px-6 bg-gradient-to-b from-sky-50 to-white">
+    <section className="py-20 px-4 md:px-6 bg-gradient-to-b from-emerald-50 via-sky-50 to-white">
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col items-center text-center animate-fade-in">
-          <div className="inline-flex items-center gap-2 bg-sky-100 text-sky-700 px-4 py-2 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full mb-6">
             <MessageCircle size={16} />
             <span className="text-sm font-medium">AI-Powered Healthcare Assistant</span>
           </div>
@@ -21,11 +21,11 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="bg-sky-600 hover:bg-sky-700">
+            <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
               Get Started Today
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button size="lg" variant="outline">
+            <Button size="lg" variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50">
               Schedule Free Demo
             </Button>
           </div>

@@ -25,7 +25,7 @@ const features = [
 
 const Features = () => {
   return (
-    <section className="py-20 px-4 md:px-6">
+    <section className="py-20 px-4 md:px-6 bg-gradient-to-b from-white to-emerald-50">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
@@ -40,9 +40,9 @@ const Features = () => {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className="p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-shadow"
+              className="p-6 rounded-lg bg-white border border-emerald-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
             >
-              <div className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center text-sky-600 mb-4">
+              <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center text-emerald-600 mb-4">
                 {feature.icon}
               </div>
               <h3 className="text-xl font-semibold text-slate-800 mb-2">
