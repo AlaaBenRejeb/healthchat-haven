@@ -8,7 +8,6 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
-// Updated system prompt for more concise responses
 const SYSTEM_PROMPT = `You are a professional AI assistant for CareBridgeAI. Keep responses brief, clear, and focused. Avoid using markdown formatting or special characters. Present information in a natural, conversational way. Focus on:
 1. Practical benefits for medical clinics
 2. Clear facts and numbers about time/cost savings
@@ -27,14 +26,86 @@ const knowledgeBase = {
     roi: "Most clinics see ROI within the first month through reduced no-shows and better efficiency."
   },
   pricing: {
-    starter: "Chatbot-only plan starts at $499/month with a one-time setup fee.",
-    complete: "Comprehensive AI system (chat + voice) starts at $1,499/month.",
+    starter: {
+      name: "Chatbots Only",
+      price: "$499/month",
+      setupFee: "$1,000",
+      description: "For clinics that need a straightforward, affordable way to automate patient communication online.",
+      features: [
+        "24/7 chatbot for patient inquiries and FAQs",
+        "Automated appointment booking, rescheduling, and reminders",
+        "Up to 5,000 interactions/month",
+        "Multilingual support",
+        "Basic analytics dashboard"
+      ]
+    },
+    complete: {
+      name: "Comprehensive AI System",
+      price: "$1,499/month",
+      setupFee: "$2,500",
+      description: "For clinics looking to fully automate patient communication, both online and over the phone.",
+      features: [
+        "Everything in the Chatbots Only plan",
+        "AI-powered voice callers",
+        "Basic call analytics",
+        "Simple clinic system integration"
+      ]
+    },
     custom: "Custom pricing available for multi-location clinics."
+  },
+  features: {
+    mainFeatures: [
+      {
+        title: "Answer FAQs Instantly",
+        description: "Give patients the information they need, anytime. Available 24/7, even when your clinic is closed."
+      },
+      {
+        title: "Automate Scheduling",
+        description: "Let patients book, reschedule, or get reminders 24/7 without staff intervention."
+      },
+      {
+        title: "Handle Phone Calls",
+        description: "AI voice callers manage high volumes without overwhelming your team."
+      },
+      {
+        title: "HIPAA Compliant",
+        description: "Your patients' privacy is guaranteed with our secure, compliant platform."
+      },
+      {
+        title: "Multilingual Support",
+        description: "Serve diverse patient populations in their preferred language."
+      },
+      {
+        title: "Focus on Care",
+        description: "Free your staff from repetitive tasks so they can focus on patient care."
+      }
+    ]
+  },
+  security: {
+    hipaa: "Full compliance with healthcare privacy regulations",
+    encryption: "End-to-end encryption for all data",
+    trust: "Used by leading healthcare providers"
+  },
+  painPoints: {
+    challenges: [
+      "High call volumes overwhelming staff",
+      "Time-consuming manual scheduling and rescheduling",
+      "No-shows costing clinics revenue daily",
+      "Staff burnout from repetitive tasks",
+      "Missed calls leading to lost patients",
+      "Limited availability outside office hours"
+    ]
+  },
+  faq: {
+    implementation: "Our system can be fully implemented within 2-3 business days with comprehensive documentation and setup guides.",
+    hipaaCompliance: "Yes, our platform is fully HIPAA compliant with end-to-end encryption, secure data storage, and strict access controls.",
+    support: "We offer 24/7 technical support through our help center, email support, and regular system updates.",
+    integration: "Yes, our AI solutions are designed to integrate seamlessly with most electronic health records (EHR) systems.",
+    cancellation: "We offer a flexible, no-commitment policy. You can cancel at any time without hidden fees."
   }
 };
 
 serve(async (req) => {
-  // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
   }
@@ -54,6 +125,7 @@ serve(async (req) => {
         model: 'gpt-4o-mini',
         messages: [
           { role: 'system', content: SYSTEM_PROMPT },
+          { role: 'system', content: `Knowledge Base: ${JSON.stringify(knowledgeBase)}` },
           ...messages
         ],
         temperature: 0.7,
