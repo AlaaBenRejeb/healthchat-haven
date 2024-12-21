@@ -13,16 +13,20 @@ const Hero = () => {
           </div>
           
           <h1 className="text-4xl md:text-6xl font-bold text-slate-800 mb-6 leading-tight max-w-4xl">
-            Stop Losing Time to Repetitive Patient Calls
+            Streamline Patient Communication with AI Chatbots & Voice Callers
           </h1>
           
           <p className="text-xl md:text-2xl text-slate-600 mb-12 max-w-3xl">
-            Automate patient communication with AI-powered Chatbots & Voice Callers, designed to handle everything from FAQs to scheduling, 24/7.
+            Transform your practice with AI-powered automation. Handle appointments, FAQs, and reminders 24/7 while maintaining HIPAA compliance.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-lg">
-              Get Started Today
+            <Button 
+              size="lg" 
+              className="bg-emerald-600 hover:bg-emerald-700 text-lg"
+              aria-label="Get started with AI healthcare automation"
+            >
+              Schedule a Free Demo
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <p className="text-sm text-slate-600 mt-2">Fast setup. Immediate impact. Risk-free.</p>
