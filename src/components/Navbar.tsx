@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import {
@@ -10,6 +10,7 @@ import {
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,19 +21,25 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
+  const handleNavigation = (id: string) => {
+    if (location.pathname === "/learn-more") {
+      // If on learn-more page, navigate to home first
+      window.location.href = `/#${id}`;
+    } else {
+      // If on home page, scroll to section
+      const element = document.getElementById(id);
+      if (element) {
+        const offset = 80;
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = element.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
     }
   };
 
@@ -63,14 +70,14 @@ const Navbar = () => {
                 key={item.id}
                 variant="ghost"
                 className="text-slate-600 hover:text-emerald-600"
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNavigation(item.id)}
               >
                 {item.label}
               </Button>
             ))}
             <Button 
               className="bg-emerald-600 hover:bg-emerald-700"
-              onClick={() => scrollToSection("cta")}
+              onClick={() => handleNavigation("cta")}
             >
               Get Started
             </Button>
@@ -91,16 +98,14 @@ const Navbar = () => {
                       key={item.id}
                       variant="ghost"
                       className="w-full justify-start text-slate-600 hover:text-emerald-600"
-                      onClick={() => {
-                        scrollToSection(item.id);
-                      }}
+                      onClick={() => handleNavigation(item.id)}
                     >
                       {item.label}
                     </Button>
                   ))}
                   <Button 
                     className="w-full bg-emerald-600 hover:bg-emerald-700"
-                    onClick={() => scrollToSection("cta")}
+                    onClick={() => handleNavigation("cta")}
                   >
                     Get Started
                   </Button>
