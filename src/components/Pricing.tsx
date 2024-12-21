@@ -1,5 +1,6 @@
 import { Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 import {
   Card,
   CardContent,
@@ -10,6 +11,8 @@ import {
 } from "@/components/ui/card";
 
 const Pricing = () => {
+  const navigate = useNavigate();
+
   const plans = [
     {
       name: "Chatbots Only",
@@ -110,6 +113,7 @@ const Pricing = () => {
                       ? 'bg-emerald-600 hover:bg-emerald-700' 
                       : 'bg-slate-800 hover:bg-slate-900'
                   }`}
+                  onClick={() => navigate('/learn-more')}
                 >
                   {plan.cta}
                   <ArrowRight className="ml-2 h-5 w-5" />
