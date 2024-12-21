@@ -1,7 +1,11 @@
-import { AlertCircle, Battery, DollarSign, ArrowRight } from "lucide-react";
+import { AlertCircle, Battery, DollarSign, ArrowRight, PhoneCall } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const PainPoints = () => {
+  const handleBookCall = () => {
+    window.open('https://calendly.com/alaabenrejeb-b/health', '_blank');
+  };
+
   return (
     <section className="py-20 px-4 md:px-6 bg-white">
       <div className="container mx-auto max-w-6xl">
@@ -12,8 +16,12 @@ const PainPoints = () => {
           <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-8">
             Every day, your team handles endless calls about clinic hours, insurance, and appointment availability. Time-consuming rescheduling and reminders. Patients frustrated with long waits and unanswered questions.
           </p>
-          <Button className="bg-emerald-600 hover:bg-emerald-700">
-            Take the First Step Toward Relief
+          <Button 
+            onClick={handleBookCall}
+            className="bg-emerald-600 hover:bg-emerald-700 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 text-lg font-semibold"
+          >
+            <PhoneCall className="w-5 h-5 mr-2" />
+            Book Your Free Relief Strategy Call
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </div>
