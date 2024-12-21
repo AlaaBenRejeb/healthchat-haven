@@ -3,6 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const Solutions = () => {
+  const handleScheduleDemo = () => {
+    window.open('https://calendly.com/alaabenrejeb-b/health', '_blank');
+  };
+
   return (
     <section className="py-20 px-4 md:px-6 bg-white">
       <div className="container mx-auto max-w-6xl">
@@ -11,7 +15,7 @@ const Solutions = () => {
             Choose the Right AI Solution for Your Clinic
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Select the perfect plan to transform your patient communication
+            Schedule a call to find the perfect plan for your needs
           </p>
         </div>
         
@@ -33,12 +37,13 @@ const Solutions = () => {
                 </li>
               ))}
             </ul>
-            <Link to="/learn-more">
-              <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-                Learn More About Chatbots
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+            <Button 
+              className="w-full bg-emerald-600 hover:bg-emerald-700"
+              onClick={handleScheduleDemo}
+            >
+              Schedule a Demo Call
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
           </div>
 
           {/* Comprehensive AI System */}
@@ -63,12 +68,13 @@ const Solutions = () => {
                 </li>
               ))}
             </ul>
-            <Link to="/learn-more">
-              <Button className="w-full bg-emerald-700 hover:bg-emerald-800">
-                Learn More About Full System
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+            <Button 
+              className="w-full bg-emerald-700 hover:bg-emerald-800"
+              onClick={handleScheduleDemo}
+            >
+              Schedule a Demo Call
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
           </div>
         </div>
       </div>

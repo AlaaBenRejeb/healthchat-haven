@@ -2,6 +2,10 @@ import { ArrowRight, MessageCircle, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
+  const handleScheduleDemo = () => {
+    window.open('https://calendly.com/alaabenrejeb-b/health', '_blank');
+  };
+
   return (
     <section className="pt-32 pb-24 px-4 md:px-6 bg-gradient-to-b from-emerald-50 via-white to-emerald-50">
       <div className="container mx-auto max-w-6xl">
@@ -24,12 +28,13 @@ const Hero = () => {
             <Button 
               size="lg" 
               className="bg-emerald-600 hover:bg-emerald-700 text-lg"
-              aria-label="Get started with AI healthcare automation"
+              onClick={handleScheduleDemo}
+              aria-label="Schedule a free demo call"
             >
-              Get Started Today
+              Schedule a Free Demo Call
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <p className="text-sm text-slate-600 mt-2">Fast setup. Immediate results. Risk-free.</p>
+            <p className="text-sm text-slate-600 mt-2">15-minute call. No commitment required.</p>
           </div>
           
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-emerald-100 pt-12">
