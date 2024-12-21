@@ -28,7 +28,12 @@ For pricing and features:
 - Separate setup fees and monthly fees clearly
 - End with a clear call to action
 
-Always maintain a professional yet approachable tone, and guide users toward booking a demo when appropriate.`;
+When users express interest in a demo or call:
+- Provide them with our Calendly booking link: https://calendly.com/alaabenrejeb-b/health
+- Keep the message brief and encouraging
+- No need to collect additional information
+
+Always maintain a professional yet approachable tone.`;
 
 const knowledgeBase = {
   solutions: {
@@ -118,6 +123,10 @@ const knowledgeBase = {
     support: "We offer 24/7 technical support through our help center, email support, and regular system updates.",
     integration: "Yes, our AI solutions are designed to integrate seamlessly with most electronic health records (EHR) systems.",
     cancellation: "We offer a flexible, no-commitment policy. You can cancel at any time without hidden fees."
+  },
+  demoBooking: {
+    calendlyLink: "https://calendly.com/alaabenrejeb-b/health",
+    response: "Great! You can schedule a demo call at your convenience using our booking link: https://calendly.com/alaabenrejeb-b/health. Our team will walk you through our solutions and answer any questions you have."
   }
 };
 
