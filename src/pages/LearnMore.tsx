@@ -1,8 +1,80 @@
 import HeroSection from "@/components/learn-more/HeroSection";
 import FeatureSection from "@/components/learn-more/FeatureSection";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Info, MessageCircle, BarChart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+// Define types for our data structures
+type Step = {
+  icon: JSX.Element;
+  title: string;
+  description: string;
+};
+
+type Feature = {
+  icon: JSX.Element;
+  title: string;
+  description: string;
+};
+
+type CaseStudy = {
+  clinic: string;
+  challenge: string;
+  solution: string;
+  results: string;
+};
+
+// Define the data arrays
+const steps: Step[] = [
+  {
+    icon: <MessageCircle className="h-8 w-8" />,
+    title: "Patient Outreach",
+    description: "Patients reach out via chat or phone."
+  },
+  {
+    icon: <Info className="h-8 w-8" />,
+    title: "AI Response",
+    description: "The chatbot or voice caller answers inquiries, books appointments, or routes urgent calls."
+  },
+  {
+    icon: <BarChart className="h-8 w-8" />,
+    title: "Staff Focus",
+    description: "Your staff stays focused on patient care, while automation handles the rest."
+  }
+];
+
+const features: Feature[] = [
+  {
+    icon: <MessageCircle className="h-6 w-6" />,
+    title: "24/7 Availability",
+    description: "Always on, even after office hours."
+  },
+  {
+    icon: <Info className="h-6 w-6" />,
+    title: "HIPAA-Compliant",
+    description: "Built to protect patient data and privacy."
+  },
+  {
+    icon: <BarChart className="h-6 w-6" />,
+    title: "Fast Setup",
+    description: "Be up and running in just a few days."
+  }
+];
+
+const caseStudies: CaseStudy[] = [
+  {
+    clinic: "Family Health Clinic",
+    challenge: "Overwhelmed staff due to high call volume",
+    solution: "Implemented chatbots and voice callers",
+    results: "Reduced no-shows by 40%, saved 15+ staff hours weekly"
+  },
+  {
+    clinic: "Dental Care Practice",
+    challenge: "Missed patient calls during peak hours",
+    solution: "AI voice caller integration",
+    results: "95% of patient inquiries resolved without staff intervention"
+  }
+];
 
 const LearnMore = () => {
   return (
@@ -73,7 +145,7 @@ const LearnMore = () => {
                     <span><strong>Solution:</strong> {study.solution}</span>
                   </p>
                   <p className="flex items-start gap-2">
-                    <ChartBar className="h-5 w-5 text-slate-400 mt-1 flex-shrink-0" />
+                    <BarChart className="h-5 w-5 text-slate-400 mt-1 flex-shrink-0" />
                     <span><strong>Results:</strong> {study.results}</span>
                   </p>
                 </div>
