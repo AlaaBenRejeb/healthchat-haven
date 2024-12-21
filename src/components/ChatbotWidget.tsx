@@ -10,7 +10,9 @@ const SYSTEM_PROMPT = `You are an AI assistant for CareBridgeAI, a healthcare te
 2. Explain benefits like reduced workload and improved patient satisfaction
 3. Guide them towards booking a demo call
 4. Answer questions about pricing, implementation, and HIPAA compliance
-5. Be professional, helpful, and focus on value proposition`;
+5. Be professional, helpful, and focus on value proposition
+
+When users express interest in scheduling a demo, respond with exactly this message: "I'll open up our scheduling calendar right here in the chat for you to book a time that works best."`;
 
 const knowledgeBase = {
   solutions: {
@@ -27,12 +29,15 @@ const knowledgeBase = {
     starter: "Our Chatbot-only plan starts at $499/month with a one-time setup fee.",
     complete: "Our comprehensive AI system (chat + voice) starts at $1,499/month.",
     custom: "We offer custom pricing for multi-location clinics."
+  },
+  demoBooking: {
+    response: "I'll open up our scheduling calendar right here in the chat for you to book a time that works best."
   }
 };
 
 const ChatbotWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Array<{ role: 'user' | 'assistant', content: string }>>([
+  const [messages, setMessages] = useState<Array<{ role: 'user' | 'assistant', content: string, isCalendly?: boolean }>>([
     { 
       role: 'assistant', 
       content: "Hi! I'm your AI assistant for CareBridgeAI. I can help you learn how our AI solutions can reduce your clinic's workload and improve patient satisfaction. What would you like to know about?" 
@@ -48,7 +53,7 @@ const ChatbotWidget = () => {
         body: {
           messages: [
             { role: 'system', content: SYSTEM_PROMPT },
-            ...messages,
+            ...messages.map(m => ({ role: m.role, content: m.content })),
             { role: 'user', content: message }
           ],
           knowledgeBase
@@ -56,10 +61,26 @@ const ChatbotWidget = () => {
       });
 
       if (error) throw error;
+      
+      // Check if the response indicates scheduling intent
+      if (data.generatedText.includes("I'll open up our scheduling calendar")) {
+        setMessages(prev => [
+          ...prev,
+          { role: 'assistant', content: data.generatedText },
+          { 
+            role: 'assistant', 
+            content: '', 
+            isCalendly: true 
+          }
+        ]);
+      } else {
+        setMessages(prev => [...prev, { role: 'assistant', content: data.generatedText }]);
+      }
+      
       return data.generatedText;
     } catch (error) {
       console.error('Error generating response:', error);
-      return "I apologize, but I'm having trouble connecting to our systems. Would you like to schedule a call with our team to discuss your needs?";
+      return "I apologize, but I'm having trouble connecting to our systems. Please try again in a moment.";
     }
   };
 
@@ -72,8 +93,7 @@ const ChatbotWidget = () => {
     setIsLoading(true);
 
     try {
-      const response = await generateResponse(userMessage);
-      setMessages(prev => [...prev, { role: 'assistant', content: response }]);
+      await generateResponse(userMessage);
     } catch (error) {
       toast({
         title: "Error",
@@ -123,15 +143,26 @@ const ChatbotWidget = () => {
                 key={index}
                 className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
               >
-                <div
-                  className={`max-w-[80%] p-3 rounded-lg ${
-                    message.role === 'user'
-                      ? 'bg-emerald-600 text-white'
-                      : 'bg-gray-100 text-slate-800'
-                  }`}
-                >
-                  {message.content}
-                </div>
+                {message.isCalendly ? (
+                  <div className="w-full h-[400px] rounded-lg overflow-hidden">
+                    <iframe
+                      src="https://calendly.com/alaabenrejeb-b/health"
+                      width="100%"
+                      height="100%"
+                      frameBorder="0"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    className={`max-w-[80%] p-3 rounded-lg ${
+                      message.role === 'user'
+                        ? 'bg-emerald-600 text-white'
+                        : 'bg-gray-100 text-slate-800'
+                    }`}
+                  >
+                    {message.content}
+                  </div>
+                )}
               </div>
             ))}
             {isLoading && (
