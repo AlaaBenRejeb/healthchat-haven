@@ -17,6 +17,10 @@ const faqs = [
   {
     question: "Can we integrate this with our existing systems?",
     answer: "Yes, our AI solutions are designed to integrate seamlessly with most existing healthcare management systems and workflows."
+  },
+  {
+    question: "What happens if we need to cancel?",
+    answer: "We offer a flexible, no-commitment policy. You can cancel at any time without any hidden fees or long-term contracts."
   }
 ];
 

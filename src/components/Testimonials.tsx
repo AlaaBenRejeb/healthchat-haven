@@ -2,24 +2,21 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "The AI assistant has transformed how we handle patient communications. Our staff can finally focus on what matters most - patient care.",
-    author: "Dr. Sarah Chen",
+    quote: "We started with chatbots to handle FAQs, and it was a game-changer. Adding voice callers saved us even more time.",
+    author: "Dr. Emily Wong",
+    role: "Family Practice",
+    rating: 5
+  },
+  {
+    quote: "Patients love the instant responses, and we've seen a 40% drop in no-shows since implementing the system.",
+    author: "Sarah Patel",
+    role: "Clinic Manager",
+    rating: 5
+  },
+  {
+    quote: "The implementation was seamless, and our staff can finally focus on what matters most - patient care.",
+    author: "Dr. Michael Chen",
     role: "Medical Director",
-    clinic: "Bay Area Health Center",
-    rating: 5
-  },
-  {
-    quote: "Implementation was seamless, and the results were immediate. Patient satisfaction scores have increased significantly.",
-    author: "James Wilson",
-    role: "Practice Manager",
-    clinic: "Family Care Associates",
-    rating: 5
-  },
-  {
-    quote: "The 24/7 availability has dramatically reduced our no-show rates and improved patient engagement.",
-    author: "Dr. Michael Rodriguez",
-    role: "Chief of Operations",
-    clinic: "Advanced Medical Group",
     rating: 5
   }
 ];
