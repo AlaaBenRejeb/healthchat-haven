@@ -3,6 +3,7 @@ import FeatureSection from "@/components/learn-more/FeatureSection";
 import { Link } from "react-router-dom";
 import { ArrowRight, Info, MessageCircle, BarChart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Navbar from "@/components/Navbar";
 
 // Define types for our data structures
 type Step = {
@@ -79,7 +80,8 @@ const caseStudies: CaseStudy[] = [
 const LearnMore = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-emerald-50 via-white to-emerald-50">
-      <main className="container mx-auto px-4 py-16 max-w-6xl">
+      <Navbar />
+      <main className="container mx-auto px-4 py-20 max-w-6xl">
         <HeroSection />
         <FeatureSection />
         
