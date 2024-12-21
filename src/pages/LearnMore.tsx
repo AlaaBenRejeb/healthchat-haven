@@ -1,80 +1,6 @@
-import HeroSection from "@/components/learn-more/HeroSection";
-import FeatureSection from "@/components/learn-more/FeatureSection";
-import { ArrowRight, Info, MessageCircle, BarChart } from "lucide-react";
+import { ArrowRight, MessageCircle, Phone, Check, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
-
-// Define types for our data structures
-type Step = {
-  icon: JSX.Element;
-  title: string;
-  description: string;
-};
-
-type Feature = {
-  icon: JSX.Element;
-  title: string;
-  description: string;
-};
-
-type CaseStudy = {
-  clinic: string;
-  challenge: string;
-  solution: string;
-  results: string;
-};
-
-// Define the data arrays
-const steps: Step[] = [
-  {
-    icon: <MessageCircle className="h-8 w-8" />,
-    title: "Patient Outreach",
-    description: "Patients reach out via chat or phone."
-  },
-  {
-    icon: <Info className="h-8 w-8" />,
-    title: "AI Response",
-    description: "The chatbot or voice caller answers inquiries, books appointments, or routes urgent calls."
-  },
-  {
-    icon: <BarChart className="h-8 w-8" />,
-    title: "Staff Focus",
-    description: "Your staff stays focused on patient care, while automation handles the rest."
-  }
-];
-
-const features: Feature[] = [
-  {
-    icon: <MessageCircle className="h-6 w-6" />,
-    title: "24/7 Availability",
-    description: "Always on, even after office hours."
-  },
-  {
-    icon: <Info className="h-6 w-6" />,
-    title: "HIPAA-Compliant",
-    description: "Built to protect patient data and privacy."
-  },
-  {
-    icon: <BarChart className="h-6 w-6" />,
-    title: "Fast Setup",
-    description: "Be up and running in just a few days."
-  }
-];
-
-const caseStudies: CaseStudy[] = [
-  {
-    clinic: "Family Health Clinic",
-    challenge: "Overwhelmed staff due to high call volume",
-    solution: "Implemented chatbots and voice callers",
-    results: "Reduced no-shows by 40%, saved 15+ staff hours weekly"
-  },
-  {
-    clinic: "Dental Care Practice",
-    challenge: "Missed patient calls during peak hours",
-    solution: "AI voice caller integration",
-    results: "95% of patient inquiries resolved without staff intervention"
-  }
-];
 
 const LearnMore = () => {
   const handleScheduleDemo = () => {
@@ -84,109 +10,175 @@ const LearnMore = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-emerald-50 via-white to-emerald-50">
       <Navbar />
-      <main className="container mx-auto px-4 py-20 max-w-6xl">
-        <HeroSection />
-        <FeatureSection />
-        
-        {/* How It Works Section */}
-        <section className="mb-20">
-          <h2 className="text-3xl font-bold text-slate-800 mb-8 text-center">
-            Simple, Seamless, and Effective
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {steps.map((step, index) => (
-              <div key={index} className="relative">
-                <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="bg-emerald-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 text-emerald-600">
-                    {step.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                  <p className="text-slate-600">{step.description}</p>
-                </div>
-                {index < steps.length - 1 && (
-                  <ArrowRight className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 text-emerald-600 h-8 w-8" />
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Features */}
-        <section className="mb-20">
-          <h2 className="text-3xl font-bold text-slate-800 mb-8 text-center">
-            What Sets Us Apart
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <div className="bg-emerald-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 text-emerald-600">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-slate-600">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Case Studies */}
-        <section className="mb-20">
-          <h2 className="text-3xl font-bold text-slate-800 mb-8 text-center">
-            See the Difference in Action
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {caseStudies.map((study, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-lg">
-                <h3 className="text-xl font-semibold mb-4 text-emerald-600">
-                  {study.clinic}
-                </h3>
-                <div className="space-y-3">
-                  <p className="flex items-start gap-2">
-                    <Info className="h-5 w-5 text-slate-400 mt-1 flex-shrink-0" />
-                    <span><strong>Challenge:</strong> {study.challenge}</span>
-                  </p>
-                  <p className="flex items-start gap-2">
-                    <MessageCircle className="h-5 w-5 text-slate-400 mt-1 flex-shrink-0" />
-                    <span><strong>Solution:</strong> {study.solution}</span>
-                  </p>
-                  <p className="flex items-start gap-2">
-                    <BarChart className="h-5 w-5 text-slate-400 mt-1 flex-shrink-0" />
-                    <span><strong>Results:</strong> {study.results}</span>
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="text-center bg-emerald-50 p-12 rounded-2xl">
-          <h2 className="text-3xl font-bold text-slate-800 mb-4">
-            Ready to Learn More About How We Can Help Your Clinic?
-          </h2>
-          <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
-            Schedule a demo or speak to our team to see how our AI-powered solutions can save you time, reduce no-shows, and keep your patients happy.
+      
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-4">
+        <div className="container mx-auto max-w-6xl text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
+            Discover How AI Chatbots & Voice Callers Simplify Patient Communication
+          </h1>
+          <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
+            Learn how our solutions automate inquiries, appointments, and follow-ups, freeing up your team to focus on patient care.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button 
+            size="lg" 
+            className="bg-emerald-600 hover:bg-emerald-700"
+            onClick={handleScheduleDemo}
+          >
+            Schedule a Call Today
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
+        </div>
+      </section>
+
+      {/* Pain Points Section */}
+      <section className="py-20 px-4 bg-white">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-6">
+              Your Team is Overwhelmed, and Patients Are Frustrated
+            </h2>
+            <div className="max-w-3xl mx-auto mb-8">
+              <p className="text-lg text-slate-600 mb-6">
+                Managing patient communication is harder than ever:
+              </p>
+              <ul className="space-y-4 text-left">
+                <li className="flex items-start gap-3">
+                  <AlertCircle className="h-6 w-6 text-emerald-600 mt-1" />
+                  <span>Endless calls for simple inquiries like clinic hours or insurance.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <AlertCircle className="h-6 w-6 text-emerald-600 mt-1" />
+                  <span>Time-consuming manual scheduling and rescheduling.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <AlertCircle className="h-6 w-6 text-emerald-600 mt-1" />
+                  <span>No-shows costing your clinic revenue daily.</span>
+                </li>
+              </ul>
+            </div>
             <Button 
               size="lg" 
               className="bg-emerald-600 hover:bg-emerald-700"
               onClick={handleScheduleDemo}
             >
-              Schedule a Demo
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              onClick={handleScheduleDemo}
-            >
-              Contact Our Team
+              Let's Fix This Together
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="py-20 px-4 bg-emerald-50">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-12 text-center">
+            Seamless Automation for Your Clinic
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="bg-white p-6 rounded-xl shadow-lg">
+              <MessageCircle className="h-12 w-12 text-emerald-600 mb-4" />
+              <h3 className="text-xl font-semibold mb-4">Chatbots</h3>
+              <p className="text-slate-600">
+                Respond instantly to FAQs, book appointments, and send reminders—available 24/7.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg">
+              <Phone className="h-12 w-12 text-emerald-600 mb-4" />
+              <h3 className="text-xl font-semibold mb-4">Voice Callers</h3>
+              <p className="text-slate-600">
+                Answer calls, schedule bookings, and direct urgent cases to your team.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg">
+              <Check className="h-12 w-12 text-emerald-600 mb-4" />
+              <h3 className="text-xl font-semibold mb-4">Integration</h3>
+              <p className="text-slate-600">
+                Works seamlessly with your existing systems, requiring no extra effort from your team.
+              </p>
+            </div>
+          </div>
+          <div className="text-center">
+            <Button 
+              size="lg" 
+              className="bg-emerald-600 hover:bg-emerald-700"
+              onClick={handleScheduleDemo}
+            >
+              Schedule a Call to See It Live
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Case Study Section */}
+      <section className="py-20 px-4 bg-white">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-12 text-center">
+            How Clinics Like Yours Are Thriving with AI
+          </h2>
+          <div className="bg-emerald-50 p-8 rounded-xl mb-12">
+            <h3 className="text-2xl font-bold mb-6">Case Study: Family Health Clinic</h3>
+            <div className="space-y-4 mb-8">
+              <div className="flex items-start gap-3">
+                <AlertCircle className="h-6 w-6 text-emerald-600 mt-1" />
+                <div>
+                  <span className="font-semibold">Challenge:</span>
+                  <span className="ml-2">High call volume overwhelmed staff.</span>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="h-6 w-6 text-emerald-600 mt-1" />
+                <div>
+                  <span className="font-semibold">Solution:</span>
+                  <span className="ml-2">Implemented chatbots for FAQs and voice callers for appointment booking.</span>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="h-6 w-6 text-emerald-600 mt-1" />
+                <div>
+                  <span className="font-semibold">Results:</span>
+                  <span className="ml-2">40% fewer no-shows, saving 15+ hours of staff time weekly.</span>
+                </div>
+              </div>
+            </div>
+            <blockquote className="border-l-4 border-emerald-600 pl-4 italic text-slate-600">
+              "The chatbot instantly reduced our workload. Patients love the quick responses, and our staff has time to focus on care."
+              <footer className="mt-2 font-semibold not-italic">— Dr. Sarah Patel, Clinic Owner</footer>
+            </blockquote>
+          </div>
+          <div className="text-center">
+            <Button 
+              size="lg" 
+              className="bg-emerald-600 hover:bg-emerald-700"
+              onClick={handleScheduleDemo}
+            >
+              Talk to Our Team About Your Needs
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="py-20 px-4 bg-emerald-50">
+        <div className="container mx-auto max-w-6xl text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-6">
+            Let's Make Patient Communication Effortless
+          </h2>
+          <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
+            Schedule a call with our team to see how our AI-powered solutions can save time, reduce no-shows, and improve patient satisfaction.
+          </p>
+          <Button 
+            size="lg" 
+            className="bg-emerald-600 hover:bg-emerald-700"
+            onClick={handleScheduleDemo}
+          >
+            Schedule a Call Today
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
+        </div>
+      </section>
     </div>
   );
 };
