@@ -1,5 +1,6 @@
 import { MessageCircle, Phone, Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Solutions = () => {
   return (
@@ -32,10 +33,12 @@ const Solutions = () => {
                 </li>
               ))}
             </ul>
-            <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-              Learn More About Chatbots
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+            <Link to="/learn-more">
+              <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                Learn More About Chatbots
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
           </div>
 
           {/* Comprehensive AI System */}
@@ -60,10 +63,12 @@ const Solutions = () => {
                 </li>
               ))}
             </ul>
-            <Button className="w-full bg-emerald-700 hover:bg-emerald-800">
-              Learn More About Full System
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+            <Link to="/learn-more">
+              <Button className="w-full bg-emerald-700 hover:bg-emerald-800">
+                Learn More About Full System
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
