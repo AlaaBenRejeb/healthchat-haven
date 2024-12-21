@@ -1,6 +1,6 @@
-import { ArrowLeft, Calendar, Clock, MessageCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -23,68 +23,79 @@ const ScheduleDemo = () => {
         </Link>
 
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-slate-800 mb-4">
-            Schedule Your Free Demo
-          </h1>
-          <p className="text-lg text-slate-600">
-            See how our AI solutions can transform your clinic's communication
+          <h1 className="text-4xl font-bold text-slate-800 mb-4">Experience HealthAI in Action</h1>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            Schedule a personalized demo to see how our AI-powered solution can transform your patient communication and save your staff valuable time.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Calendar className="h-5 w-5 text-emerald-600" />
-                30-Minute Demo
-              </CardTitle>
-              <CardDescription>
-                Get a comprehensive overview of our platform
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-2">
-                  <Clock className="h-5 w-5 text-emerald-600 mt-0.5" />
-                  <span>Live walkthrough of features</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <MessageCircle className="h-5 w-5 text-emerald-600 mt-0.5" />
-                  <span>Q&A session with our experts</span>
-                </li>
-              </ul>
-              <Button className="w-full mt-6 bg-emerald-600 hover:bg-emerald-700">
-                Schedule 30-Min Demo
+        <Card>
+          <CardHeader>
+            <CardTitle>Schedule Your Free Demo</CardTitle>
+            <CardDescription>
+              Choose a time that works best for you, and our team will walk you through HealthAI's features and capabilities.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="clinicName" className="text-sm font-medium text-slate-700">Clinic Name</label>
+                  <input
+                    id="clinicName"
+                    type="text"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-md"
+                    placeholder="Healthcare Clinic"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="role" className="text-sm font-medium text-slate-700">Your Role</label>
+                  <input
+                    id="role"
+                    type="text"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-md"
+                    placeholder="Practice Manager"
+                  />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="email" className="text-sm font-medium text-slate-700">Work Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-md"
+                  placeholder="you@healthcare.com"
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="phone" className="text-sm font-medium text-slate-700">Phone Number</label>
+                <input
+                  id="phone"
+                  type="tel"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-md"
+                  placeholder="(555) 123-4567"
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="preferredTime" className="text-sm font-medium text-slate-700">Preferred Demo Time</label>
+                <select
+                  id="preferredTime"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-md"
+                >
+                  <option value="">Select a time...</option>
+                  <option value="morning">Morning (9AM - 12PM)</option>
+                  <option value="afternoon">Afternoon (1PM - 5PM)</option>
+                </select>
+              </div>
+              <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                Schedule Demo
               </Button>
-            </CardContent>
-          </Card>
+            </form>
+          </CardContent>
+        </Card>
 
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Calendar className="h-5 w-5 text-emerald-600" />
-                15-Minute Quick Tour
-              </CardTitle>
-              <CardDescription>
-                Brief overview of core features
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-2">
-                  <Clock className="h-5 w-5 text-emerald-600 mt-0.5" />
-                  <span>Quick feature highlights</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <MessageCircle className="h-5 w-5 text-emerald-600 mt-0.5" />
-                  <span>Basic questions answered</span>
-                </li>
-              </ul>
-              <Button className="w-full mt-6 bg-emerald-600 hover:bg-emerald-700">
-                Schedule Quick Tour
-              </Button>
-            </CardContent>
-          </Card>
+        <div className="mt-8 text-center text-slate-600">
+          <p>Not ready for a demo? <Link to="/contact" className="text-emerald-600 hover:text-emerald-700">Contact us</Link> with any questions.</p>
         </div>
       </div>
     </div>

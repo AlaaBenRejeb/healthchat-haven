@@ -1,6 +1,6 @@
-import { ArrowLeft, Mail, MessageCircle, Phone } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -23,74 +23,65 @@ const Contact = () => {
         </Link>
 
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-slate-800 mb-4">
-            Contact Our Team
-          </h1>
-          <p className="text-lg text-slate-600">
-            We're here to answer your questions and help you get started
+          <h1 className="text-4xl font-bold text-slate-800 mb-4">Get in Touch</h1>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            Have questions about HealthAI? Our team is here to help you transform your patient communication experience.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <MessageCircle className="h-5 w-5 text-emerald-600" />
-                Chat With Us
-              </CardTitle>
-              <CardDescription>
-                Get instant answers to your questions
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-                Start Chat
-              </Button>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Phone className="h-5 w-5 text-emerald-600" />
-                Schedule a Call
-              </CardTitle>
-              <CardDescription>
-                Talk to our team directly
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-                Book a Call
-              </Button>
-            </CardContent>
-          </Card>
-
-          <Card className="md:col-span-2">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Mail className="h-5 w-5 text-emerald-600" />
-                Email Us
-              </CardTitle>
-              <CardDescription>
-                We'll get back to you within 24 hours
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="text-center p-4">
-                <p className="text-slate-600 mb-4">
-                  Send us an email at:
-                </p>
-                <a 
-                  href="mailto:support@healthai.com" 
-                  className="text-emerald-600 hover:text-emerald-700 font-medium"
-                >
-                  support@healthai.com
-                </a>
+        <Card>
+          <CardHeader>
+            <CardTitle>Contact Our Team</CardTitle>
+            <CardDescription>
+              Fill out the form below and we'll get back to you within 24 hours.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="firstName" className="text-sm font-medium text-slate-700">First Name</label>
+                  <input
+                    id="firstName"
+                    type="text"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-md"
+                    placeholder="John"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="lastName" className="text-sm font-medium text-slate-700">Last Name</label>
+                  <input
+                    id="lastName"
+                    type="text"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-md"
+                    placeholder="Doe"
+                  />
+                </div>
               </div>
-            </CardContent>
-          </Card>
-        </div>
+              <div className="space-y-2">
+                <label htmlFor="email" className="text-sm font-medium text-slate-700">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-md"
+                  placeholder="john@healthcare.com"
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="message" className="text-sm font-medium text-slate-700">Message</label>
+                <textarea
+                  id="message"
+                  rows={4}
+                  className="w-full px-3 py-2 border border-slate-300 rounded-md"
+                  placeholder="Tell us about your needs..."
+                />
+              </div>
+              <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                Send Message
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

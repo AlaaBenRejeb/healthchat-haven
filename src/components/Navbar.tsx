@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import {
@@ -22,7 +23,7 @@ const Navbar = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = 80; // height of fixed navbar plus some padding
+      const offset = 80;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -51,7 +52,9 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <div className="text-emerald-600 font-bold text-xl">HealthAI</div>
+          <Link to="/" className="text-emerald-600 font-bold text-xl hover:text-emerald-700 transition-colors">
+            HealthAI
+          </Link>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-4">
