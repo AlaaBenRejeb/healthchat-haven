@@ -17,11 +17,11 @@ const Hero = () => {
           </div>
           
           <h1 className="text-4xl md:text-6xl font-bold text-slate-800 mb-6 leading-tight max-w-4xl">
-            Transform Your Clinic with AI-Powered Communication Tools
+            No More Missed Calls. No More Frustrated Patients.
           </h1>
           
           <p className="text-xl md:text-2xl text-slate-600 mb-12 max-w-3xl">
-            Save time, reduce no-shows, and boost patient satisfaction with 24/7 AI-powered solutions that automate inquiries, bookings, and follow-ups.
+            Our AI chatbots and voice callers work 24/7 to ensure no inquiry goes unanswered and no appointment is missed.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
@@ -31,7 +31,7 @@ const Hero = () => {
               onClick={handleScheduleDemo}
               aria-label="Schedule a free demo call"
             >
-              Schedule a Free Demo Call
+              Get Started Today
               <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
             </Button>
             <p className="text-sm text-slate-600 mt-2">15-minute call. No commitment required.</p>
