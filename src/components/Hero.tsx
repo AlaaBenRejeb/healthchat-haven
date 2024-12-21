@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
-    <section className="py-24 px-4 md:px-6 bg-gradient-to-b from-emerald-50 via-white to-emerald-50">
+    <section className="pt-32 pb-24 px-4 md:px-6 bg-gradient-to-b from-emerald-50 via-white to-emerald-50">
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col items-center text-center animate-fade-in">
           <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full mb-8">

@@ -6,18 +6,30 @@ import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import CallToAction from "@/components/CallToAction";
 import SecuritySection from "@/components/SecuritySection";
+import Navbar from "@/components/Navbar";
 
 const Index = () => {
   return (
     <main className="min-h-screen">
+      <Navbar />
       <Hero />
-      <PainPoints />
-      <Solutions />
-      <Features />
-      <Testimonials />
-      <SecuritySection />
-      <FAQ />
-      <CallToAction />
+      <div id="features">
+        <PainPoints />
+        <Solutions />
+        <Features />
+      </div>
+      <div id="testimonials">
+        <Testimonials />
+      </div>
+      <div id="security">
+        <SecuritySection />
+      </div>
+      <div id="faq">
+        <FAQ />
+      </div>
+      <div id="cta">
+        <CallToAction />
+      </div>
     </main>
   );
 };
