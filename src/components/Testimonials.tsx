@@ -49,7 +49,6 @@ const Testimonials = () => {
               <div>
                 <div className="font-semibold text-slate-800">{testimonial.author}</div>
                 <div className="text-sm text-slate-600">{testimonial.role}</div>
-                <div className="text-sm text-emerald-600">{testimonial.clinic}</div>
               </div>
             </div>
           ))}

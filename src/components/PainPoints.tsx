@@ -1,4 +1,4 @@
-import { AlertCircle, Clock, Battery, DollarSign } from "lucide-react";
+import { AlertCircle, Clock, Battery, DollarSign, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const PainPoints = () => {
