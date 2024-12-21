@@ -7,6 +7,7 @@ import FAQ from "@/components/FAQ";
 import CallToAction from "@/components/CallToAction";
 import SecuritySection from "@/components/SecuritySection";
 import Navbar from "@/components/Navbar";
+import Pricing from "@/components/Pricing";
 
 const Index = () => {
   return (
@@ -17,6 +18,9 @@ const Index = () => {
         <PainPoints />
         <Solutions />
         <Features />
+      </div>
+      <div id="pricing">
+        <Pricing />
       </div>
       <div id="testimonials">
         <Testimonials />
