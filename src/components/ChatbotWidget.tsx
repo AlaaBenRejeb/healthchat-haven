@@ -2,6 +2,7 @@ import { useState } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 // System prompt and knowledge base
 const SYSTEM_PROMPT = `You are an AI assistant for CareBridgeAI, a healthcare technology company. Your role is to:
@@ -9,14 +10,7 @@ const SYSTEM_PROMPT = `You are an AI assistant for CareBridgeAI, a healthcare te
 2. Explain benefits like reduced workload and improved patient satisfaction
 3. Guide them towards booking a demo call
 4. Answer questions about pricing, implementation, and HIPAA compliance
-5. Be professional, helpful, and focus on value proposition
-
-Key points to remember:
-- Our solutions include AI chatbots and voice systems
-- We're fully HIPAA compliant
-- Implementation takes 2-3 business days
-- We integrate with most EHR systems
-- ROI is typically seen within the first month`;
+5. Be professional, helpful, and focus on value proposition`;
 
 const knowledgeBase = {
   solutions: {
@@ -36,42 +30,6 @@ const knowledgeBase = {
   }
 };
 
-const generateResponse = async (message: string): Promise<string> => {
-  try {
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
-      },
-      body: JSON.stringify({
-        model: "gpt-4",
-        messages: [
-          {
-            role: "system",
-            content: SYSTEM_PROMPT
-          },
-          {
-            role: "user",
-            content: `Context: User message: "${message}"
-            Knowledge base: ${JSON.stringify(knowledgeBase)}
-            
-            Based on the knowledge base and system prompt, provide a helpful response to the user's message. Always try to guide them towards booking a demo call when appropriate.`
-          }
-        ],
-        temperature: 0.7,
-        max_tokens: 500
-      })
-    });
-
-    const data = await response.json();
-    return data.choices[0].message.content;
-  } catch (error) {
-    console.error('Error generating response:', error);
-    return "I apologize, but I'm having trouble connecting to our systems. Would you like to schedule a call with our team to discuss your needs?";
-  }
-};
-
 const ChatbotWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Array<{ role: 'user' | 'assistant', content: string }>>([
@@ -83,6 +41,27 @@ const ChatbotWidget = () => {
   const [inputMessage, setInputMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+
+  const generateResponse = async (message: string) => {
+    try {
+      const { data, error } = await supabase.functions.invoke('generate-chat-response', {
+        body: {
+          messages: [
+            { role: 'system', content: SYSTEM_PROMPT },
+            ...messages,
+            { role: 'user', content: message }
+          ],
+          knowledgeBase
+        }
+      });
+
+      if (error) throw error;
+      return data.generatedText;
+    } catch (error) {
+      console.error('Error generating response:', error);
+      return "I apologize, but I'm having trouble connecting to our systems. Would you like to schedule a call with our team to discuss your needs?";
+    }
+  };
 
   const handleSendMessage = async () => {
     if (!inputMessage.trim()) return;
