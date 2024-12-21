@@ -3,18 +3,23 @@ import { AlertCircle, Clock, Battery, DollarSign } from "lucide-react";
 const painPoints = [
   {
     icon: <AlertCircle className="h-6 w-6" />,
-    title: "Your Team Is Swamped",
-    description: "From endless calls about appointment availability to answering the same FAQs, managing patient communication takes time—and it's eating into your team's day."
+    title: "Your Team is Swamped",
+    description: "Phones are constantly ringing, response times are slipping, and staff are overwhelmed with repetitive tasks, taking focus away from care."
   },
   {
     icon: <Clock className="h-6 w-6" />,
-    title: "Patient Frustration",
-    description: "Patients are frustrated with long wait times. Your staff is burning out. And no-shows are costing your practice valuable revenue."
+    title: "Patients are Frustrated",
+    description: "Long wait times, missed appointments, and delayed responses are leading to patient dissatisfaction and lost revenue."
   },
   {
     icon: <Battery className="h-6 w-6" />,
     title: "Staff Burnout",
-    description: "How long can this keep going before it impacts your care? Let AI take the load off your shoulders and help your team breathe easier."
+    description: "Burnt-out staff lead to high turnover, frustrated patients look elsewhere for care, and missed appointments mean lost revenue."
+  },
+  {
+    icon: <DollarSign className="h-6 w-6" />,
+    title: "Lost Revenue",
+    description: "The longer you wait to automate, the more revenue you lose through missed appointments and inefficient scheduling."
   }
 ];
 
@@ -24,14 +29,14 @@ const PainPoints = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-            Common Challenges We Solve
+            What's at Stake?
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Let's address the daily struggles your practice faces
+            Managing patient communication shouldn't feel like a full-time job
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {painPoints.map((point, index) => (
             <div 
               key={index}

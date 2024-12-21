@@ -1,35 +1,35 @@
-import { Clock, Calendar, MessageSquare, Shield, Languages } from "lucide-react";
+import { Clock, Calendar, MessageSquare, Shield, Languages, Lock } from "lucide-react";
 
 const features = [
   {
     icon: <Clock className="h-6 w-6" />,
-    title: "Never Miss a Call Again",
-    description: "Automatically handle patient inquiries, even after hours."
+    title: "Fast Setup",
+    description: "Be up and running in days, not weeks. Our system integrates seamlessly with your existing workflow."
   },
   {
     icon: <Calendar className="h-6 w-6" />,
-    title: "Simplify Scheduling",
-    description: "Book, reschedule, or send reminders instantly."
+    title: "Appointment Automation",
+    description: "Reduce no-shows with automated booking, rescheduling, and reminder systems."
   },
   {
     icon: <MessageSquare className="h-6 w-6" />,
-    title: "Answer FAQs Automatically",
-    description: "From clinic hours to insurance info, patients get answers fast."
+    title: "Natural Conversations",
+    description: "AI-powered assistants that sound human and understand context for better patient experience."
   },
   {
     icon: <Shield className="h-6 w-6" />,
-    title: "Secure & Private",
-    description: "Fully HIPAA-compliant and built to protect sensitive patient data."
+    title: "HIPAA Compliant",
+    description: "Your patients' privacy is guaranteed with our secure, compliant platform."
   },
   {
     icon: <Languages className="h-6 w-6" />,
-    title: "Speak Their Language",
-    description: "Multilingual capabilities mean you can serve every patient better."
+    title: "Multilingual Support",
+    description: "Reach more patients in their preferred language with our multilingual capabilities."
   },
   {
-    icon: <Clock className="h-6 w-6" />,
-    title: "Save Your Staff Time",
-    description: "Free up your team to focus on patient care, not repetitive tasks."
+    icon: <Lock className="h-6 w-6" />,
+    title: "Scalable Solution",
+    description: "Perfect for practices of any size, from small clinics to large healthcare systems."
   }
 ];
 
@@ -39,10 +39,10 @@ const Features = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-            Meet Your New 24/7 Team Member
+            Why Choose Us?
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Here's how our AI Chatbots & Voice Callers transform your practice
+            Transform your practice with powerful features designed for healthcare providers
           </p>
         </div>
         
