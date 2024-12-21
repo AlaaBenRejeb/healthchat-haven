@@ -144,7 +144,7 @@ const LearnMore = () => {
             </div>
             <blockquote className="border-l-4 border-emerald-600 pl-4 italic text-slate-600">
               "The chatbot instantly reduced our workload. Patients love the quick responses, and our staff has time to focus on care."
-              <footer className="mt-2 font-semibold not-italic">— Dr. Sarah Patel, Clinic Owner</footer>
+              <footer className="mt-2 font-semibold not-italic">— Dr. Sarah ****, Clinic Owner</footer>
             </blockquote>
           </div>
           <div className="text-center">
