@@ -1,4 +1,4 @@
-import { AlertCircle, Clock, Battery, DollarSign, ArrowRight } from "lucide-react";
+import { AlertCircle, Battery, DollarSign, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const PainPoints = () => {
@@ -7,20 +7,20 @@ const PainPoints = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-            Overwhelmed by Patient Inquiries and Missed Appointments?
+            Your Team is Drowning in Patient Calls—Let's Fix That.
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-8">
-            Every day, your staff spends hours answering calls, handling appointment requests, and repeating the same information. Patients are frustrated by long wait times, no-shows are costing your practice revenue, and your team is exhausted.
+            Every day, your team handles endless calls about clinic hours, insurance, and appointment availability. Time-consuming rescheduling and reminders. Patients frustrated with long waits and unanswered questions.
           </p>
           <Button className="bg-emerald-600 hover:bg-emerald-700">
-            Let AI Take the Load Off
+            Take the First Step Toward Relief
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </div>
         
         <div className="mt-16">
           <h3 className="text-2xl md:text-3xl font-bold text-slate-800 text-center mb-8">
-            What's the Real Cost of Keeping Things as They Are?
+            What's the Real Cost of Doing Nothing?
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="p-6 rounded-xl bg-white border border-emerald-100 hover:shadow-xl transition-all duration-300">
@@ -28,10 +28,10 @@ const PainPoints = () => {
                 <AlertCircle className="h-6 w-6" />
               </div>
               <h4 className="text-xl font-semibold text-slate-800 mb-2">
-                Patient Frustration
+                Lost Patients
               </h4>
               <p className="text-slate-600">
-                Frustrated patients may look elsewhere for care when they can't get timely responses.
+                Patients expect fast responses—and they'll leave if they don't get them.
               </p>
             </div>
             <div className="p-6 rounded-xl bg-white border border-emerald-100 hover:shadow-xl transition-all duration-300">
@@ -42,7 +42,7 @@ const PainPoints = () => {
                 Staff Burnout
               </h4>
               <p className="text-slate-600">
-                Burnt-out staff are harder to retain and replace, affecting care quality.
+                Burned-out staff mean mistakes, high turnover, and low morale.
               </p>
             </div>
             <div className="p-6 rounded-xl bg-white border border-emerald-100 hover:shadow-xl transition-all duration-300">
@@ -50,10 +50,10 @@ const PainPoints = () => {
                 <DollarSign className="h-6 w-6" />
               </div>
               <h4 className="text-xl font-semibold text-slate-800 mb-2">
-                Lost Revenue
+                Revenue Impact
               </h4>
               <p className="text-slate-600">
-                No-shows and missed follow-ups hurt your revenue every day.
+                No-shows and inefficiency hurt your bottom line daily.
               </p>
             </div>
           </div>

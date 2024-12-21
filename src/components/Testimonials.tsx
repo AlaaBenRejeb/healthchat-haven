@@ -2,19 +2,19 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "We started with chatbots to handle FAQs, and it was a game-changer. Adding voice callers saved us even more time.",
-    author: "Dr. Emily Wong",
-    role: "Family Practice",
+    quote: "Patients love the instant responses, and our staff finally has time to focus on meaningful work.",
+    author: "Dr. Ayesha Khan",
+    role: "Family Clinic",
     rating: 5
   },
   {
-    quote: "Patients love the instant responses, and we've seen a 40% drop in no-shows since implementing the system.",
-    author: "Sarah Patel",
-    role: "Clinic Manager",
+    quote: "Adding the voice caller transformed how we manage patient calls. It feels like having an extra team member.",
+    author: "Sarah Peterson",
+    role: "Practice Manager",
     rating: 5
   },
   {
-    quote: "The implementation was seamless, and our staff can finally focus on what matters most - patient care.",
+    quote: "The implementation was seamless, and now we can focus on what truly matters - patient care.",
     author: "Dr. Michael Chen",
     role: "Medical Director",
     rating: 5
@@ -27,10 +27,10 @@ const Testimonials = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-            Trusted by Leading Healthcare Providers
+            Join the Clinics Already Thriving with AI
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            See how healthcare providers are transforming their practices with our AI solutions
+            See how healthcare providers are transforming their practices
           </p>
         </div>
         

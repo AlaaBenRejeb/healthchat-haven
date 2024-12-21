@@ -2,19 +2,19 @@ import { Clock, Calendar, MessageSquare, Shield, Languages, Lock } from "lucide-
 
 const features = [
   {
-    icon: <Clock className="h-6 w-6" />,
-    title: "Fast Setup",
-    description: "Be up and running in days, not weeks. Our system integrates seamlessly with your existing workflow."
+    icon: <MessageSquare className="h-6 w-6" />,
+    title: "Answer FAQs Instantly",
+    description: "Give patients the information they need, anytime. Available 24/7, even when your clinic is closed."
   },
   {
     icon: <Calendar className="h-6 w-6" />,
-    title: "Appointment Automation",
-    description: "Reduce no-shows with automated booking, rescheduling, and reminder systems."
+    title: "Automate Scheduling",
+    description: "Let patients book, reschedule, or get reminders 24/7 without staff intervention."
   },
   {
-    icon: <MessageSquare className="h-6 w-6" />,
-    title: "Natural Conversations",
-    description: "AI-powered assistants that sound human and understand context for better patient experience."
+    icon: <Clock className="h-6 w-6" />,
+    title: "Handle Phone Calls",
+    description: "AI voice callers manage high volumes without overwhelming your team."
   },
   {
     icon: <Shield className="h-6 w-6" />,
@@ -24,12 +24,12 @@ const features = [
   {
     icon: <Languages className="h-6 w-6" />,
     title: "Multilingual Support",
-    description: "Reach more patients in their preferred language with our multilingual capabilities."
+    description: "Serve diverse patient populations in their preferred language."
   },
   {
     icon: <Lock className="h-6 w-6" />,
-    title: "Scalable Solution",
-    description: "Perfect for practices of any size, from small clinics to large healthcare systems."
+    title: "Focus on Care",
+    description: "Free your staff from repetitive tasks so they can focus on patient care."
   }
 ];
 
@@ -39,10 +39,10 @@ const Features = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-            Revolutionize Healthcare Operations with AI
+            Your AI Assistant for Smarter Patient Care
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Transform your practice with powerful features designed for modern healthcare providers
+            Whether you need just chatbots or a full AI system, we've got you covered
           </p>
         </div>
         
