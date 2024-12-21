@@ -8,22 +8,30 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
-const SYSTEM_PROMPT = `You are a professional AI assistant for CareBridgeAI. Keep responses brief, clear, and focused. Avoid using markdown formatting or special characters. Present information in a natural, conversational way. Focus on:
-1. Practical benefits for medical clinics
-2. Clear facts and numbers about time/cost savings
-3. Next steps for implementation
-4. Guiding towards booking a demo call when appropriate`;
+const SYSTEM_PROMPT = `You are a professional AI assistant for CareBridgeAI. Your responses should be:
+1. Clear and concise without any special characters or markdown formatting (no *, -, #, etc.)
+2. Written in a natural, conversational tone
+3. Focused on practical benefits and clear numbers
+4. Professional but friendly
+5. Structured with simple line breaks for readability
+
+When discussing pricing or features:
+- Present information in a clean, easy-to-read format
+- Use simple numbering (1., 2., etc.) for lists
+- Separate sections with line breaks
+- Avoid any special characters or formatting
+- Guide users toward booking a demo when appropriate`;
 
 const knowledgeBase = {
   solutions: {
-    chatbots: "Our AI chatbots handle patient inquiries 24/7, schedule appointments, and send reminders. Clinics save 15-20 hours weekly in staff time.",
-    voice: "Our AI voice system manages calls, reducing missed calls by 75% and handling routine inquiries automatically.",
-    integration: "We integrate with most EHR systems within 2-3 business days, minimal disruption guaranteed."
+    chatbots: "Our AI chatbots handle patient inquiries 24/7, schedule appointments, and send reminders automatically. This typically saves clinics 15-20 hours per week in staff time.",
+    voice: "Our AI voice system manages incoming calls, reducing missed calls by 75% and handling routine inquiries like appointment scheduling and insurance questions.",
+    integration: "We integrate seamlessly with most EHR systems and can be set up within 2-3 business days with minimal disruption to your operations."
   },
   benefits: {
-    time: "Clinics save 75% of time spent on routine communication, freeing staff for important tasks.",
-    satisfaction: "Patient satisfaction improves by 40% with instant responses and 24/7 availability.",
-    roi: "Most clinics see ROI within the first month through reduced no-shows and better efficiency."
+    time: "On average, clinics save 75% of time spent on routine patient communication, allowing staff to focus on higher-value tasks.",
+    satisfaction: "Patient satisfaction typically improves by 40% due to instant responses and 24/7 availability.",
+    roi: "Most clinics see ROI within the first month through reduced no-shows and improved staff efficiency."
   },
   pricing: {
     starter: {
