@@ -16,8 +16,9 @@ const Hero = () => {
             <span className="text-sm font-medium">HIPAA Compliant AI Solutions</span>
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold text-slate-800 mb-6 leading-tight max-w-4xl">
-            No More Missed Calls. No More Frustrated Patients.
+          <h1 className="text-4xl md:text-6xl font-bold text-slate-800 mb-6 leading-tight max-w-4xl flex flex-col">
+            <span>No More Missed Calls.</span>
+            <span>No More Frustrated Patients.</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-slate-600 mb-12 max-w-3xl">
