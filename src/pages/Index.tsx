@@ -4,6 +4,7 @@ import Solutions from "@/components/Solutions";
 import Features from "@/components/Features";
 import Stats from "@/components/Stats";
 import Testimonials from "@/components/Testimonials";
+import FAQ from "@/components/FAQ";
 import CallToAction from "@/components/CallToAction";
 
 const Index = () => {
@@ -15,6 +16,7 @@ const Index = () => {
       <Features />
       <Stats />
       <Testimonials />
+      <FAQ />
       <CallToAction />
     </main>
   );
