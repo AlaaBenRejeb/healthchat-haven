@@ -1,8 +1,8 @@
-import { Clock24, Calendar, MessageSquare, Shield, Languages, Clock } from "lucide-react";
+import { Clock, Calendar, MessageSquare, Shield, Languages } from "lucide-react";
 
 const features = [
   {
-    icon: <Clock24 className="h-6 w-6" />,
+    icon: <Clock className="h-6 w-6" />,
     title: "Never Miss a Call Again",
     description: "Automatically handle patient inquiries, even after hours."
   },
