@@ -37,7 +37,6 @@ const Pricing = () => {
       features: [
         "Everything in the Chatbots Only plan",
         "AI-powered voice callers (3,000 minutes/month)",
-        "Multilingual voice support",
         "Advanced analytics with call transcripts",
         "Integration with clinic management systems"
       ],
