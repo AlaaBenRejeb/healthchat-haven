@@ -78,7 +78,7 @@ const Navbar = () => {
               </Button>
             ))}
             <Button 
-              className="bg-emerald-600 hover:bg-emerald-700 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 font-semibold"
+              className="bg-emerald-600 hover:bg-emerald-700 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 font-semibold whitespace-nowrap"
               onClick={handleBookCall}
             >
               <PhoneCall className="w-4 h-4 mr-2" />
@@ -90,27 +90,27 @@ const Navbar = () => {
           <div className="md:hidden">
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" className="mr-2">
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent className="w-[240px] sm:w-[300px]">
-                <div className="flex flex-col space-y-4 mt-8">
+              <SheetContent side="right" className="w-[85vw] sm:w-[385px] pt-16">
+                <div className="flex flex-col space-y-6">
                   {navItems.map((item) => (
                     <Button
                       key={item.id}
                       variant="ghost"
-                      className="w-full justify-start text-slate-600 hover:text-emerald-600"
+                      className="w-full justify-start text-lg text-slate-600 hover:text-emerald-600 h-12"
                       onClick={() => handleNavigation(item.id)}
                     >
                       {item.label}
                     </Button>
                   ))}
                   <Button 
-                    className="w-full bg-emerald-600 hover:bg-emerald-700 shadow-lg font-semibold"
+                    className="w-full bg-emerald-600 hover:bg-emerald-700 shadow-lg font-semibold h-14 text-base"
                     onClick={handleBookCall}
                   >
-                    <PhoneCall className="w-4 h-4 mr-2" />
+                    <PhoneCall className="w-5 h-5 mr-3" />
                     Transform Your Clinic Today
                   </Button>
                 </div>
