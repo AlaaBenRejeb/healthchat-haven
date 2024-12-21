@@ -1,6 +1,5 @@
 import HeroSection from "@/components/learn-more/HeroSection";
 import FeatureSection from "@/components/learn-more/FeatureSection";
-import { Link } from "react-router-dom";
 import { ArrowRight, Info, MessageCircle, BarChart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
@@ -78,6 +77,10 @@ const caseStudies: CaseStudy[] = [
 ];
 
 const LearnMore = () => {
+  const handleScheduleDemo = () => {
+    window.open('https://calendly.com/alaabenrejeb-b/health', '_blank');
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-emerald-50 via-white to-emerald-50">
       <Navbar />
@@ -165,18 +168,22 @@ const LearnMore = () => {
             Schedule a demo or speak to our team to see how our AI-powered solutions can save you time, reduce no-shows, and keep your patients happy.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/schedule-demo">
-              <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
-                Schedule a Demo
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button size="lg" variant="outline">
-                Contact Our Team
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+            <Button 
+              size="lg" 
+              className="bg-emerald-600 hover:bg-emerald-700"
+              onClick={handleScheduleDemo}
+            >
+              Schedule a Demo
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline"
+              onClick={handleScheduleDemo}
+            >
+              Contact Our Team
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
           </div>
         </section>
       </main>

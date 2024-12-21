@@ -1,8 +1,11 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 
 const HeroSection = () => {
+  const handleScheduleDemo = () => {
+    window.open('https://calendly.com/alaabenrejeb-b/health', '_blank');
+  };
+
   return (
     <section className="text-center mb-20">
       <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6 animate-fade-in">
@@ -11,12 +14,14 @@ const HeroSection = () => {
       <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
         Learn everything you need to know about our solutions, how they work, and the benefits they bring to your practice.
       </p>
-      <Link to="/schedule-demo">
-        <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
-          Schedule a Free Demo
-          <ArrowRight className="ml-2 h-5 w-5" />
-        </Button>
-      </Link>
+      <Button 
+        size="lg" 
+        className="bg-emerald-600 hover:bg-emerald-700"
+        onClick={handleScheduleDemo}
+      >
+        Schedule a Free Demo
+        <ArrowRight className="ml-2 h-5 w-5" />
+      </Button>
     </section>
   );
 };
