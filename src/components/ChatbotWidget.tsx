@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { MessageCircle, X, Send } from "lucide-react";
+import { MessageCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import ChatMessage from "./chat/ChatMessage";
+import ChatInput from "./chat/ChatInput";
 
 // System prompt and knowledge base
 const SYSTEM_PROMPT = `You are an AI assistant for CareBridgeAI, a healthcare technology company. Your role is to:
@@ -62,16 +64,11 @@ const ChatbotWidget = () => {
 
       if (error) throw error;
       
-      // Check if the response indicates scheduling intent
       if (data.generatedText.includes("I'll open up our scheduling calendar")) {
         setMessages(prev => [
           ...prev,
           { role: 'assistant', content: data.generatedText },
-          { 
-            role: 'assistant', 
-            content: '', 
-            isCalendly: true 
-          }
+          { role: 'assistant', content: '', isCalendly: true }
         ]);
       } else {
         setMessages(prev => [...prev, { role: 'assistant', content: data.generatedText }]);
@@ -112,9 +109,9 @@ const ChatbotWidget = () => {
     }
   };
 
-  return (
-    <div className="fixed bottom-4 right-4 z-50">
-      {!isOpen ? (
+  if (!isOpen) {
+    return (
+      <div className="fixed bottom-4 right-4 z-50">
         <Button
           onClick={() => setIsOpen(true)}
           className="h-12 w-12 rounded-full bg-emerald-600 hover:bg-emerald-700 shadow-lg"
@@ -122,81 +119,52 @@ const ChatbotWidget = () => {
         >
           <MessageCircle className="h-6 w-6" />
         </Button>
-      ) : (
-        <div className="bg-white rounded-lg shadow-xl w-[350px] max-w-[calc(100vw-2rem)] h-[500px] max-h-[calc(100vh-2rem)] flex flex-col">
-          <div className="p-4 bg-emerald-600 text-white rounded-t-lg flex justify-between items-center">
-            <h3 className="font-semibold">CareBridgeAI Assistant</h3>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-white hover:text-white/80"
-              onClick={() => setIsOpen(false)}
-              aria-label="Close chat"
-            >
-              <X className="h-5 w-5" />
-            </Button>
-          </div>
-          
-          <div className="flex-1 overflow-y-auto p-4 space-y-4">
-            {messages.map((message, index) => (
-              <div
-                key={index}
-                className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
-              >
-                {message.isCalendly ? (
-                  <div className="w-full h-[400px] rounded-lg overflow-hidden">
-                    <iframe
-                      src="https://calendly.com/alaabenrejeb-b/health"
-                      width="100%"
-                      height="100%"
-                      frameBorder="0"
-                    />
-                  </div>
-                ) : (
-                  <div
-                    className={`max-w-[80%] p-3 rounded-lg ${
-                      message.role === 'user'
-                        ? 'bg-emerald-600 text-white'
-                        : 'bg-gray-100 text-slate-800'
-                    }`}
-                  >
-                    {message.content}
-                  </div>
-                )}
-              </div>
-            ))}
-            {isLoading && (
-              <div className="flex justify-start">
-                <div className="bg-gray-100 text-slate-800 p-3 rounded-lg">
-                  Typing...
-                </div>
-              </div>
-            )}
-          </div>
-          
-          <div className="p-4 border-t">
-            <div className="flex gap-2">
-              <textarea
-                value={inputMessage}
-                onChange={(e) => setInputMessage(e.target.value)}
-                onKeyPress={handleKeyPress}
-                placeholder="Type your message..."
-                className="flex-1 resize-none border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-emerald-600"
-                rows={1}
-                disabled={isLoading}
-              />
-              <Button
-                onClick={handleSendMessage}
-                disabled={isLoading || !inputMessage.trim()}
-                className="bg-emerald-600 hover:bg-emerald-700"
-                aria-label="Send message"
-              >
-                <Send className="h-5 w-5" />
-              </Button>
-            </div>
-          </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="fixed bottom-4 right-4 z-50">
+      <div className="bg-white rounded-lg shadow-xl w-[350px] max-w-[calc(100vw-2rem)] h-[500px] max-h-[calc(100vh-2rem)] flex flex-col">
+        <div className="p-4 bg-emerald-600 text-white rounded-t-lg flex justify-between items-center">
+          <h3 className="font-semibold">CareBridgeAI Assistant</h3>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="text-white hover:text-white/80"
+            onClick={() => setIsOpen(false)}
+            aria-label="Close chat"
+          >
+            <X className="h-5 w-5" />
+          </Button>
         </div>
-      )}
+        
+        <div className="flex-1 overflow-y-auto p-4 space-y-4">
+          {messages.map((message, index) => (
+            <div
+              key={index}
+              className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+            >
+              <ChatMessage {...message} />
+            </div>
+          ))}
+          {isLoading && (
+            <div className="flex justify-start">
+              <div className="bg-gray-100 text-slate-800 p-3 rounded-lg">
+                Typing...
+              </div>
+            </div>
+          )}
+        </div>
+        
+        <ChatInput
+          inputMessage={inputMessage}
+          setInputMessage={setInputMessage}
+          handleSendMessage={handleSendMessage}
+          handleKeyPress={handleKeyPress}
+          isLoading={isLoading}
+        />
+      </div>
     </div>
   );
 };
