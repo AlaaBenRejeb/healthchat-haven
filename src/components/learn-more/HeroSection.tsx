@@ -9,17 +9,17 @@ const HeroSection = () => {
   return (
     <section className="text-center mb-20">
       <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6 animate-fade-in">
-        Discover How AI Chatbots and Voice Callers Can Transform Your Clinic
+        No More Missed Calls. No More Frustrated Patients.
       </h1>
       <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
-        Learn everything you need to know about our solutions, how they work, and the benefits they bring to your practice.
+        Our AI chatbots and voice callers work 24/7 to ensure no inquiry goes unanswered and no appointment is missed.
       </p>
       <Button 
         size="lg" 
         className="bg-emerald-600 hover:bg-emerald-700"
         onClick={handleScheduleDemo}
       >
-        Schedule a Free Demo
+        Get Started Today
         <ArrowRight className="ml-2 h-5 w-5" />
       </Button>
     </section>
