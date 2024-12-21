@@ -1,4 +1,4 @@
-import { MessageCircle, Phone, Check } from "lucide-react";
+import { MessageCircle, Phone, Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Solutions = () => {
